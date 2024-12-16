@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            overflow: hidden; 
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin: 10px 0;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            margin: 5px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #fafafa;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="button"]:hover {
+            background-color: #e0e0e0;
+        }
+        .danger-message {
+            color: red;
+            font-weight: bold;
+            position: absolute; 
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1><strong>Chkoun nta?</strong></h1>
+    <p>Pick a choice</p>
+    <p>
+        <input type="button" value="Khalil Habli" onclick="showDangerMessage()" />
+        <input type="button" value="Khalil diali" onclick="redirectToLovePage()" />
+    </p>
+    <p id="dangerMessage" class="danger-message">🚨 Jawab ghalat a si khalil 🚨</p>
+
+    <script>
+        function showDangerMessage() {
+            const dangerMessage = document.getElementById("dangerMessage");
+            dangerMessage.style.display = "block";
+
+            moveMessageRandomly(dangerMessage);
+        }
+
+        function redirectToLovePage() {
+            window.location.href = "khalil.2.html"; 
+        }
+
+        function moveMessageRandomly(element) {
+            setInterval(() => {
+                const randomX = Math.random() * window.innerWidth;
+                const randomY = Math.random() * window.innerHeight;
+
+                // Apply new positions to the element
+                element.style.left = randomX + "px";
+                element.style.top = randomY + "px";
+            }, 500); 
+        }
+    </script>
+</body>
+</html>
